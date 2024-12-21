@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: Khanh co dep trai khong
   answers:
-  - 
-  - 
-  - 
-  - 
+  - co
+  - coa
+  - coaa
+  - coaaa
   correctAnswerIndex: 0
