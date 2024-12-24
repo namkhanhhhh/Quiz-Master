@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3992418c71cebb04f838ace63c79420f, type: 3}
   m_Name: Question 4
   m_EditorClassIdentifier: 
-  question: Enter nnew question text here
+  question: Do biet cau nay chon dau
+  answers:
+  - day nay
+  - tao moi dung
+  - oc cho thi chon 2 cai tren
+  - chac chan la m oc cho
+  correctAnswerIndex: 0

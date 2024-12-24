@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3992418c71cebb04f838ace63c79420f, type: 3}
   m_Name: Question 2
   m_EditorClassIdentifier: 
-  question: Enter nnew question text here
+  question: May co oc cho khong
+  answers:
+  - coa
+  - chua biet
+  - chac chan roai
+  - nguu hon khanh
+  correctAnswerIndex: 3

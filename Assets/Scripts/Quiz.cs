@@ -23,9 +23,21 @@ public class Quiz : MonoBehaviour
     [SerializeField] Image timerImage;
     Timer timer;
 
-    void Start(){
+    [Header("Scoring")]
+    [SerializeField] TextMeshProUGUI scoreText;
+    ScoreKeeper scoreKeeper;
+
+    [Header("ProgessBar")]
+    [SerializeField] Slider progressBar;
+    public bool isComplete;
+
+
+        void Start(){
       timer= FindAnyObjectByType<Timer>();
-        }
+      scoreKeeper=FindAnyObjectByType<ScoreKeeper>();
+      progressBar.maxValue  = questions.Count;
+      progressBar.value=0;
+              }
 
 
 
@@ -67,6 +79,8 @@ void DisplayQuestion(){
   SetDefaultButtonSprites();
   GetRandQuestion();
   DisplayQuestion();
+  progressBar.value++;
+  scoreKeeper.IncrementQuestionsSeen();
   }
  }
 
@@ -90,21 +104,13 @@ void DisplayQuestion(){
 
     public void OnAnswerSelected(int index){
       hasAnsweredEarly=true;
-    Image buttonImage;
-    if(index==currentQuestion.GetCorrectAnswerIndex()){
-           questionText.text="Correct!";
-         buttonImage = answerButtons[index].GetComponent<Image>();
-        buttonImage.sprite=correctAnsSprite;   
-        }
-        else{
-            corAnswerIndex=currentQuestion.GetCorrectAnswerIndex();
-            string correctAnswer=currentQuestion.GetAnswer(corAnswerIndex);
-            questionText.text="Sorry, correct answer was:\n "+ correctAnswer;
-             buttonImage = answerButtons[corAnswerIndex].GetComponent<Image>();
-            buttonImage.sprite=correctAnsSprite; 
-        }
+    DisplayAnswer(index);
         SetButtonState(false);
         timer.CancelTimer();
+        scoreText.text="Score: "+scoreKeeper.CalculateScore()+" points";
+        if(progressBar.value==progressBar.maxValue){
+          isComplete=true;
+        }
   }
 
   void DisplayAnswer(int index){
@@ -113,6 +119,7 @@ void DisplayQuestion(){
            questionText.text="Correct!";
          buttonImage = answerButtons[index].GetComponent<Image>();
         buttonImage.sprite=correctAnsSprite;   
+        scoreKeeper.IncrementCorrectAns();
         }
         else{
             corAnswerIndex=currentQuestion.GetCorrectAnswerIndex();
