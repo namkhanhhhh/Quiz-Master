@@ -6,4 +6,4 @@ This is a game to be able to ask questions in a short period of time, testing th
 ## Link to play the game
 - [Quiz Master](https://play.unity.com/en/games/d69a713c-4839-4aeb-8b73-ce0a61c54e3a/quiz-master-made-by-khanh)
 ## Author
-- [Nguyen Nam Khanh](NguyenNamKhanh)
+- [Nguyen Nam Khanh](https://www.facebook.com/tommi.ngx/)
